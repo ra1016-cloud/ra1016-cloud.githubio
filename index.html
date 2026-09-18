@@ -1,287 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rohit Adhikari | Rutgers Business School</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg: #FAFAF7;
-    --ink: #16181C;
-    --ink-soft: #55584F;
-    --scarlet: #C8102E;
-    --navy: #1E2A3A;
-    --line: #E3DFD3;
-    --paper: #FFFFFF;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rohit Adhikari | Rutgers Business School</title>
+  <style>
+    :root {
+      --rbs-red: #cc0033;
+      --text-dark: #1f2937;
+      --text-muted: #6b7280;
+      --bg-light: #f9fafb;
+      --badge-bg: #fde8e8;
+      --badge-text: #9b1c1c;
+    }
 
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
-  body{
-    margin:0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Inter', -apple-system, sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-  h1,h2,h3,.wordmark,.stat-num{ font-family: 'Space Grotesk', sans-serif; }
-  .mono{ font-family: 'IBM Plex Mono', monospace; }
-  a{ color: inherit; }
-  img{ max-width:100%; display:block; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
 
-  .wrap{ max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+    body {
+      background-color: #ffffff;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
 
-  /* header */
-  header{
-    position: sticky; top:0; z-index: 20;
-    background: rgba(250,250,247,.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav{
-    display:flex; align-items:center; justify-content:space-between;
-    height: 72px;
-  }
-  .brand{ display:flex; align-items:baseline; gap:10px; text-decoration:none; }
-  .brand-mark{
-    font-weight:700; color: var(--scarlet); font-size: 1.05rem; letter-spacing:.02em;
-  }
-  .brand-name{ color: var(--ink-soft); font-size: .95rem; }
-  .brand-div{ color: var(--line); }
-  .navlinks{ display:flex; align-items:center; gap: 32px; }
-  .navlinks a{
-    text-decoration:none; color: var(--ink); font-size:.95rem; font-weight:500;
-    padding: 6px 0; border-bottom: 2px solid transparent;
-  }
-  .navlinks a:hover{ border-bottom-color: var(--scarlet); }
-  .navlinks .btn{
-    background: var(--navy); color:#fff; padding: 10px 18px; border-radius: 4px;
-    border-bottom: none;
-  }
-  .navlinks .btn:hover{ background: var(--scarlet); }
+    /* Navigation */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 8%;
+      background-color: #ffffff;
+    }
 
-  /* hero */
-  .hero{ padding: 88px 0 72px; }
-  .hero-grid{
-    display:grid; grid-template-columns: 260px 1fr; gap: 64px; align-items:start;
-  }
-  .photo-block{ text-align:left; }
-  .photo-frame{
-    width: 220px; height: 220px; border-radius: 50%;
-    overflow:hidden; border: 3px solid var(--navy);
-    box-shadow: 6px 6px 0 var(--scarlet);
-  }
-  .photo-frame img{ width:100%; height:100%; object-fit: cover; }
-  .photo-name{ margin-top: 22px; font-size: 1.3rem; font-weight:700; }
-  .photo-role{ color: var(--scarlet); font-weight:600; font-size:.95rem; margin-top:2px; }
-  .photo-sub{ color: var(--ink-soft); font-size:.88rem; margin-top:4px; }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
 
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    background: #FDECEC; color: var(--scarlet);
-    padding: 6px 14px; border-radius: 4px;
-    font-size: .8rem; font-weight:600; margin-bottom: 22px;
-  }
-  .eyebrow::before{ content:"●"; font-size:.6rem; }
+    .brand span.rbs {
+      color: var(--rbs-red);
+      font-weight: 900;
+      border-right: 2px solid #e5e7eb;
+      padding-right: 0.5rem;
+    }
 
-  .hero h1{
-    font-size: clamp(2.1rem, 3.6vw, 3.1rem);
-    line-height: 1.12; font-weight: 700; margin: 0 0 22px;
-    max-width: 15ch;
-  }
-  .hero p.lede{
-    font-size: 1.08rem; line-height: 1.65; color: var(--ink-soft);
-    max-width: 60ch; margin: 0 0 30px;
-  }
-  .hero-actions{ display:flex; align-items:center; gap: 20px; flex-wrap: wrap; }
-  .btn-primary{
-    background: var(--navy); color:#fff; text-decoration:none;
-    padding: 13px 22px; border-radius: 4px; font-weight:600; font-size:.95rem;
-  }
-  .btn-primary:hover{ background: var(--scarlet); }
-  .link-inline{
-    text-decoration:none; font-weight:600; font-size:.95rem;
-    border-bottom: 2px solid var(--scarlet); padding-bottom:2px;
-  }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
 
-  /* route divider - logistics motif */
-  .route{
-    height: 1px;
-    background-image: linear-gradient(90deg, var(--line) 60%, rgba(0,0,0,0) 0%);
-    background-position: top; background-size: 14px 1px; background-repeat: repeat-x;
-    margin: 0;
-  }
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
 
-  /* focus areas */
-  .focus{ padding: 72px 0; }
-  .focus-head{ max-width: 62ch; margin-bottom: 44px; }
-  .focus-head h2{ font-size: 1.7rem; margin: 0 0 14px; }
-  .focus-head p{ color: var(--ink-soft); line-height:1.6; margin:0; font-size: 1rem; }
+    .btn-dark {
+      background-color: #0f172a;
+      color: #ffffff !important;
+      padding: 0.6rem 1.2rem;
+      border-radius: 9999px;
+      transition: background-color 0.2s;
+    }
 
-  .focus-list{
-    display:grid; grid-template-columns: repeat(4, 1fr); gap: 0;
-    border-top: 1px solid var(--line);
-  }
-  .focus-item{
-    padding: 24px 20px 24px 0; border-bottom: 1px solid var(--line);
-    border-right: 1px solid var(--line);
-  }
-  .focus-item:last-child{ border-right:none; }
-  .focus-num{ font-family:'IBM Plex Mono',monospace; font-size:.8rem; color: var(--scarlet); }
-  .focus-title{ font-weight:600; margin-top:10px; font-size: 1rem; }
+    .btn-dark:hover {
+      background-color: #1e293b;
+    }
 
-  /* projects */
-  .projects{ padding: 72px 0 96px; }
-  .projects-head{
-    display:flex; justify-content:space-between; align-items:flex-end;
-    margin-bottom: 32px; flex-wrap:wrap; gap:16px;
-    border-top: 1px solid var(--line); padding-top: 40px;
-  }
-  .projects-head h2{ font-size: 1.7rem; margin:0 0 8px; }
-  .projects-head p{ color: var(--ink-soft); margin:0; max-width: 55ch; }
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 4rem;
+      padding: 4rem 8%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-  .empty-state{
-    border: 1px dashed var(--line);
-    border-radius: 6px;
-    padding: 56px 32px;
-    text-align: center;
-    background: var(--paper);
-  }
-  .empty-state .mono{
-    font-size: .8rem; color: var(--scarlet); letter-spacing:.03em;
-  }
-  .empty-state h3{
-    font-size: 1.2rem; margin: 14px 0 8px; font-weight:600;
-  }
-  .empty-state p{
-    color: var(--ink-soft); margin:0; font-size:.95rem;
-  }
+    /* Left Sidebar Profile */
+    .profile-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
-  /* footer */
-  footer{
-    border-top: 1px solid var(--line);
-    padding: 32px 0;
-  }
-  .foot-row{
-    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
-  }
-  .foot-row a{ text-decoration:none; font-size:.9rem; color: var(--ink-soft); }
-  .foot-row a:hover{ color: var(--scarlet); }
-  .foot-left{ font-size:.85rem; color: var(--ink-soft); }
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      margin-bottom: 1.25rem;
+    }
 
-  @media (max-width: 760px){
-    .hero-grid{ grid-template-columns: 1fr; gap: 32px; }
-    .photo-frame{ width:160px; height:160px; }
-    .focus-list{ grid-template-columns: 1fr 1fr; }
-    .navlinks{ gap:16px; }
-    .navlinks a:not(.btn){ display:none; }
-  }
-</style>
+    .profile-card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    .profile-card .school {
+      color: var(--rbs-red);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 0.2rem;
+    }
+
+    .profile-card .status {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Main Hero Content */
+    .hero-content {
+      flex: 1;
+      min-width: 320px;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.3rem 0.8rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content h1 {
+      font-size: 2.75rem;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-content p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      max-width: 650px;
+    }
+
+    .cta-group {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .btn-light {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 1px solid #e5e7eb;
+    }
+
+    .link-arrow {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* Projects Section */
+    .projects-section {
+      padding: 4rem 8%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap nav">
-    <a href="#" class="brand">
-      <span class="brand-mark">RBS</span>
-      <span class="brand-div">|</span>
-      <span class="brand-name">Rohit's Portfolio</span>
-    </a>
-    <nav class="navlinks">
+  <!-- Navigation Bar -->
+  <header>
+    <div class="brand">
+      <span class="rbs">RBS</span>
+      <span>Rohit's Portfolio</span>
+    </div>
+    <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
-      <a href="mailto:ra1016@scarletmail.rutgers.edu" class="btn">Email Me</a>
+      <a href="mailto:a1016@scarletmail.rutgers.edu" class="btn-dark">Contact Me</a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<section class="hero" id="about">
-  <div class="wrap hero-grid">
-    <div class="photo-block">
-      <div class="photo-frame">
-        <img src="assets/rohit.jpg" alt="Rohit Adhikari">
-      </div>
-      <div class="photo-name">Rohit Adhikari</div>
-      <div class="photo-role">Rutgers Business School</div>
-      <div class="photo-sub">B.S. Supply Chain Management</div>
+  <!-- Hero / Profile Section -->
+  <section class="hero" id="about">
+    <div class="profile-card">
+      <!-- Replace 'headshot.jpg' with your image file name in the repository -->
+      <img src="headshot.jpg" alt="Rohit Adhikari" class="profile-img">
+      <h3>Rohit Adhikari</h3>
+      <p class="school">Rutgers Business School</p>
+      <p class="status">Supply Chain Major</p>
     </div>
 
-    <div>
-      <div class="eyebrow">Currently: Supply Chain Management</div>
-      <h1>Moving goods, data, and decisions through organizations, efficiently.</h1>
-      <p class="lede">
-        Welcome. I'm Rohit Adhikari, an undergraduate at Rutgers Business School pursuing a
-        Bachelor's in Supply Chain Management, with a focus on logistics, procurement, and
-        operations. I plan to build a career in supply chain analytics, operations planning, or
-        procurement: analyzing processes, finding gaps, and implementing solutions that lower
-        costs and improve reliability. I thrive in fast-paced environments where teamwork,
-        communication, and adaptability matter.
+    <div class="hero-content">
+      <div class="badge">Currently: Pursuing B.S. in Supply Chain</div>
+      <h1>Optimizing logistics, operations, and supply chains at Rutgers.</h1>
+      <p>
+        Welcome! I'm Rohit Adhikari, an undergraduate student at RBS. I specialize in logistics, procurement, and operations focus. My goal is to build a career in supply chain analytics and operations planning—analyzing processes, identifying gaps, and implementing solutions that lower costs and improve reliability[cite: 2].
       </p>
-      <div class="hero-actions">
-        <a href="mailto:ra1016@scarletmail.rutgers.edu" class="btn-primary">Email Me</a>
-        <a href="https://www.linkedin.com/in/rohit-adhikari-230078256/" target="_blank" rel="noopener" class="link-inline">LinkedIn Profile</a>
+      <div class="cta-group">
+        <a href="mailto:a1016@scarletmail.rutgers.edu" class="btn-light">Email Me</a>
+        <a href="https://www.linkedin.com/in/rohit-adhikari-230078256/" target="_blank" class="link-arrow">LinkedIn Profile &rarr;</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="route"></div>
-
-<section class="focus">
-  <div class="wrap">
-    <div class="focus-head">
-      <h2>Where I focus</h2>
-      <p>Four areas guide how I study and work: the parts of a supply chain where small
-      improvements create the most value.</p>
-    </div>
-    <div class="focus-list">
-      <div class="focus-item">
-        <div class="focus-num">01</div>
-        <div class="focus-title">Logistics</div>
-      </div>
-      <div class="focus-item">
-        <div class="focus-num">02</div>
-        <div class="focus-title">Procurement</div>
-      </div>
-      <div class="focus-item">
-        <div class="focus-num">03</div>
-        <div class="focus-title">Operations</div>
-      </div>
-      <div class="focus-item">
-        <div class="focus-num">04</div>
-        <div class="focus-title">Supply Chain Analytics</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="projects" id="projects">
-  <div class="wrap">
-    <div class="projects-head">
-      <h2>Projects</h2>
-      <p>Work that shows how I analyze processes and build solutions.</p>
-    </div>
-    <div class="empty-state">
-      <div class="mono">IN TRANSIT</div>
-      <h3>Projects are on the way.</h3>
-      <p>Check back soon for work samples and case studies.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap foot-row">
-    <div class="foot-left">Rohit Adhikari &middot; Rutgers Business School</div>
-    <div style="display:flex; gap:20px;">
-      <a href="mailto:ra1016@scarletmail.rutgers.edu">ra1016@scarletmail.rutgers.edu</a>
-      <a href="https://www.linkedin.com/in/rohit-adhikari-230078256/" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
-  </div>
-</footer>
+  <!-- Projects / Work Section -->
+  <section class="projects-section" id="projects">
+    <h2 class="section-title">Core Business Pillars: My Work</h2>
+    <p class="section-subtitle">
+      This grid highlights sample projects demonstrating my analytical approach, teamwork, and strategic thinking across supply chain functions[cite: 1, 2].
+    </p>
+  </section>
 
 </body>
 </html>
